@@ -44,23 +44,23 @@ def register(request) :
 def profile(request) :
 	if request.user.is_superuser :
 		return HttpResponseRedirect("/teams/")
-	j = models.Teams.objects.get(teamname=request.user).job
-	c = models.Teams.objects.get(teamname=request.user).company
-	form_data = {'job':j, 'company':c}
-	if request.method == 'POST' :
-		form = forms.UpdateTeamDetails(request.POST)
-		success = 0
-		if form.is_valid() :
-			job = form.cleaned_data.get("job")
-			company = form.cleaned_data.get("company")
-			team = request.user
-			models.Teams.objects.filter(teamname=team).update(job=job, company=company)
-			success = 1
-			return render(request, 'profile/profile.html', {'form':form, 'success':success})
-	else :
-		form = forms.UpdateTeamDetails(initial=form_data)
+	# j = models.Teams.objects.get(teamname=request.user).job
+	# c = models.Teams.objects.get(teamname=request.user).company
+	# form_data = {'job':j, 'company':c}
+	# if request.method == 'POST' :
+	# 	form = forms.UpdateTeamDetails(request.POST)
+	# 	success = 0
+	# 	if form.is_valid() :
+	# 		job = form.cleaned_data.get("job")
+	# 		company = form.cleaned_data.get("company")
+	# 		team = request.user
+	# 		models.Teams.objects.filter(teamname=team).update(job=job, company=company)
+	# 		success = 1
+	# 		return render(request, 'profile/profile.html', {'form':form, 'success':success})
+	# else :
+	# 	form = forms.UpdateTeamDetails(initial=form_data)
 		
-	return render(request, 'profile/profile.html', {'form':form})
+	return render(request, 'profile/profile.html')
 
 @login_required(login_url="/accounts/login/")
 def team_view(request) :

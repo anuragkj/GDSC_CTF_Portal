@@ -5,7 +5,8 @@ from . import forms
 from django.http import HttpResponse
 from . import models
 from accounts import models as accounts_models
-
+from datetime import datetime
+from django.utils import timezone
 # Create your views here.
 
 class PassInsideView() :
@@ -107,12 +108,21 @@ def flagsubmit(request) :
 				initial_points = accounts_models.Teams.objects.get(teamname=request.user).points
 				updated_points = initial_points + points
 				accounts_models.Teams.objects.filter(teamname=request.user).update(points=updated_points)
+				last_time = timezone.now()
+				accounts_models.Teams.objects.filter(teamname=request.user).update(latest=last_time)
 				response = '<div id="flag_correct"><p>CORRECT</p></div>'
 		except :
 			fr.save()
 			initial_points = accounts_models.Teams.objects.get(teamname=request.user).points
 			updated_points = initial_points + points
+			print(update_fields=['latest'])
+			# new_time = timezone.now()
+			# diff_time = new_time - request.user.date_joined.date()
 			accounts_models.Teams.objects.filter(teamname=request.user).update(points=updated_points)
+			last_time = timezone.now()
+			accounts_models.Teams.objects.filter(teamname=request.user).update(latest=last_time)
+			# accounts_models.Teams.objects.filter(teamname=request.user).update(latestsub=new_time)
+			# accounts_models.Teams.objects.filter(teamname=request.user).update(diff=diff_time)
 			response = '<div id="flag_correct"><p>CORRECT</p></div>'
 	elif request.user.is_superuser :
 		response = '<div id="flag_already"><p>Correct, But not added to scoreboard</p></div>'

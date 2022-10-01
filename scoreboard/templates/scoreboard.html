@@ -24,6 +24,8 @@
 						<tr>
 							<th>Team Name</th>
 							<th>Points</th>
+							<th>Join Time</th>
+							<th>Last Solved</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -34,6 +36,12 @@
 							</td>
 							<td>
 								{{ t.points }}
+							</td>
+							<td>
+								{{ t.join }}
+							</td>
+							<td>
+								{{ t.latest }}
 							</td>
 						</tr>
 						{% endfor %}

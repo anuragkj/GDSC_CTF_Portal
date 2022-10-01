@@ -31,17 +31,7 @@
 			{% endif %}
 			<p><b>Team Name</b> : {{ user.username }}</p>
 			<p><b>Team Email</b> : {{ user.email }}</p>
-			<form method="post">
-				{% csrf_token %}
-				{% for fields in form %}
-					<div>
-						<label>{{ fields.label }}</label>
-						{{ fields }}
-					</div>
-				{% endfor %}
-
-				<input type="submit" name="update" value="Update" class="updateFormButton">
-			</form>
+			
 		</div>
 		<div style="text-align: center;">
 			<a href="changepassword/">Change Password</a>
