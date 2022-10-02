@@ -1,7 +1,7 @@
 {% extends 'navigationbar.html' %}
 
 {% load static %}
-
+{% load markdown_extras %}
 {% block title %}
 	<title>Challenges</title>
 {% endblock %}
@@ -48,8 +48,9 @@
 											<h4 class="modal-title">{{ mission.name }}</h4>
 										</div>
 										<div class="modal-body">
-											<p><b>Challenge Description: </b></p>
-											<p>{{ mission.description }}</p>
+											<p><h3>{{ mission.name }}</h3></p>
+											<br>
+											<p>{{ mission.description | markdown | safe }}</p>
 											{% if mission.file %}
 												<p><b>File:</b> <a href="uploads/{{ mission.file }}">download</a></p>
 											{% endif %}
@@ -118,7 +119,7 @@
 										</div>
 										<div class="modal-body">
 											<p><b>Challenge Description: </b></p>
-											<p>{{ mission.description }}</p>
+											<p>{{ mission.description | markdown | safe }}</p>
 											{% if mission.file %}
 												<p><b>File:</b> <a href="uploads/{{ mission.file }}">download</a></p>
 											{% endif %}
@@ -187,7 +188,7 @@
 										</div>
 										<div class="modal-body">
 											<p><b>Challenge Description: </b></p>
-											<p>{{ mission.description }}</p>
+											<p>{{ mission.description | markdown | safe }}</p>
 											{% if mission.file %}
 												<p><b>File:</b> <a href="uploads/{{ mission.file }}">download</a></p>
 											{% endif %}
@@ -256,7 +257,7 @@
 										</div>
 										<div class="modal-body">
 											<p><b>Challenge Description: </b></p>
-											<p>{{ mission.description }}</p>
+											<p>{{ mission.description | markdown | safe }}</p>
 											{% if mission.file %}
 												<p><b>File:</b> <a href="uploads/{{ mission.file }}">download</a></p>
 											{% endif %}
@@ -325,7 +326,7 @@
 										</div>
 										<div class="modal-body">
 											<p><b>Challenge Description: </b></p>
-											<p>{{ mission.description }}</p>
+											<p>{{ mission.description | markdown | safe }}</p>
 											{% if mission.file %}
 												<p><b>File:</b> <a href="uploads/{{ mission.file }}">download</a></p>
 											{% endif %}
@@ -394,7 +395,7 @@
 										</div>
 										<div class="modal-body">
 											<p><b>Challenge Description: </b></p>
-											<p>{{ mission.description }}</p>
+											<p>{{ mission.description | markdown | safe }}</p>
 											{% if mission.file %}
 												<p><b>File:</b> <a href="uploads/{{ mission.file }}">download</a></p>
 											{% endif %}

@@ -10,7 +10,7 @@ class Challenges(models.Model) :
 	name = models.CharField(max_length=250, unique=True)
 	challenge_id = models.CharField(max_length=300, primary_key=True)
 	category = models.CharField(max_length=100)
-	description = models.CharField(max_length=1000, blank=True, default="")
+	description = models.TextField()
 	points = models.IntegerField()
 	file = models.FileField(null=True, blank=True, upload_to=get_upload_path)
 	flag = models.CharField(max_length=500)

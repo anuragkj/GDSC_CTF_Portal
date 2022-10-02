@@ -1,7 +1,7 @@
 {% extends 'navigationbar.html' %}
 
 {% load static %}
-
+{% load markdown_extras %}
 {% block title %}
 	<title>Forums</title>
 {% endblock %}
@@ -41,7 +41,7 @@
 						</p>
 					</div>
 					<div class="descriptionThread">
-						<p>{{ thread.description}}</p>
+						<p>{{ thread.description | markdown | safe }}</p>
 					</div>
 					<div class="bottomThread">
 						<p>
