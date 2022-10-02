@@ -6,7 +6,7 @@ from . import forms
 urlpatterns = [
 	path('', manual_views.redirect, name="redirect"),
 	path('login/', views.LoginView.as_view(), {'template_name':'login/login.html','authentication_form':forms.LoginForm}),
-	path('logout/', views.LogoutView.as_view(), {'next_page':'/'}, name="logout"),
+	path('logout/', views.LogoutView.as_view(template_name='login/logout.html'), name='logout'),
 	path('register/', manual_views.register, name="register"),
 	path('profile/', manual_views.profile, name="profile"),
 	path('team/', manual_views.team_view, name="team_view"),

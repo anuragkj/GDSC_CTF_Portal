@@ -133,6 +133,7 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/challenges/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'challenges/uploads/')
 
