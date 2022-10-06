@@ -173,10 +173,17 @@ def addchallenges(request) :
 
 @login_required(login_url='login')
 def showHint(request, pk):
-    challenge = models.Challenges.objects.get(challenge_id = pk)
-    initial_points = accounts_models.Teams.objects.get(teamname=request.user).points
-    updated_points = initial_points - challenge.hint_points
-    accounts_models.Teams.objects.filter(teamname=request.user).update(points=updated_points)
-    hint = challenge.hint
+	fc = models.ChallengesSolvedBy.objects.filter(user_name=request.user)
+	obs = []
+	for k in fc :
+		obs.append(k.challenge_id)
+	if pk in obs :
+		hint = "Question is solved already!!"
+	else:
+		challenge = models.Challenges.objects.get(challenge_id = pk)
+		initial_points = accounts_models.Teams.objects.get(teamname=request.user).points
+		updated_points = initial_points - challenge.hint_points
+		accounts_models.Teams.objects.filter(teamname=request.user).update(points=updated_points)
+		hint = challenge.hint
 
-    return render(request, 'hint.html', {'hint':hint})
+	return render(request, 'hint.html', {'hint':hint})
