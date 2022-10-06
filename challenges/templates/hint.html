@@ -1,0 +1,16 @@
+{% extends 'navigationbar.html' %}
+
+{% load static %}
+{% load markdown_extras %}
+{% block title %}
+	<title>HINT</title>
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <h3>Hint for the question:</h3>
+        {{ hint | markdown | safe }}
+        <br>
+        <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
+    </div>
+{% endblock content %}

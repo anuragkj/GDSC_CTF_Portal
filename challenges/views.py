@@ -7,6 +7,8 @@ from . import models
 from accounts import models as accounts_models
 from datetime import datetime
 from django.utils import timezone
+
+import challenges
 # Create your views here.
 
 class PassInsideView() :
@@ -168,3 +170,13 @@ def addchallenges(request) :
 	
 	else :
 		return redirect("/")
+
+@login_required(login_url='login')
+def showHint(request, pk):
+    challenge = models.Challenges.objects.get(challenge_id = pk)
+    initial_points = accounts_models.Teams.objects.get(teamname=request.user).points
+    updated_points = initial_points - challenge.hint_points
+    accounts_models.Teams.objects.filter(teamname=request.user).update(points=updated_points)
+    hint = challenge.hint
+
+    return render(request, 'hint.html', {'hint':hint})

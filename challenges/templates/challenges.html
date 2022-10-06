@@ -56,6 +56,7 @@
 											{% endif %}
 											<p><b>Points: </b>{{ mission.points }}</p>
 											<p><b>Author: </b>{{ mission.author }}</p>
+											<a href="{% url 'showhint' mission.challenge_id %}">Show Hint</a>
 											<form method="post" id="{{ mission.challenge_id }}_flag_form" action="postflag/">
 												{% csrf_token %}
 												<input type="text" name="{{ mission.challenge_id }}_flag" class="input_flag" placeholder="Submit Flag" id="{{ mission.challenge_id }}_flag">
@@ -125,6 +126,7 @@
 											{% endif %}
 											<p><b>Points: </b>{{ mission.points }}</p>
 											<p><b>Author: </b>{{ mission.author }}</p>
+											<a href="{% url 'showhint' challenge.id %}">Show Hint</a>
 											<form method="post" id="{{ mission.challenge_id }}_flag_form" action="postflag/">
 												{% csrf_token %}
 												<input type="text" name="{{ mission.challenge_id }}_flag" class="input_flag" placeholder="Submit Flag" id="{{ mission.challenge_id }}_flag">
@@ -194,6 +196,7 @@
 											{% endif %}
 											<p><b>Points: </b>{{ mission.points }}</p>
 											<p><b>Author: </b>{{ mission.author }}</p>
+											<a href="{% url 'showhint' challenge.id %}">Show Hint</a>
 											<form method="post" id="{{ mission.challenge_id }}_flag_form" action="postflag/">
 												{% csrf_token %}
 												<input type="text" name="{{ mission.challenge_id }}_flag" class="input_flag" placeholder="Submit Flag" id="{{ mission.challenge_id }}_flag">
@@ -263,6 +266,7 @@
 											{% endif %}
 											<p><b>Points: </b>{{ mission.points }}</p>
 											<p><b>Author: </b>{{ mission.author }}</p>
+											<a href="{% url 'showhint' challenge.id %}">Show Hint</a>
 											<form method="post" id="{{ mission.challenge_id }}_flag_form" action="postflag/">
 												{% csrf_token %}
 												<input type="text" name="{{ mission.challenge_id }}_flag" class="input_flag" placeholder="Submit Flag" id="{{ mission.challenge_id }}_flag">
@@ -332,6 +336,7 @@
 											{% endif %}
 											<p><b>Points: </b>{{ mission.points }}</p>
 											<p><b>Author: </b>{{ mission.author }}</p>
+											<a href="{% url 'showhint' challenge.id %}">Show Hint</a>
 											<form method="post" id="{{ mission.challenge_id }}_flag_form" action="postflag/">
 												{% csrf_token %}
 												<input type="text" name="{{ mission.challenge_id }}_flag" class="input_flag" placeholder="Submit Flag" id="{{ mission.challenge_id }}_flag">
@@ -401,6 +406,7 @@
 											{% endif %}
 											<p><b>Points: </b>{{ mission.points }}</p>
 											<p><b>Author: </b>{{ mission.author }}</p>
+											<a href="{% url 'showhint' challenge.id %}">Show Hint</a>
 											<form method="post" id="{{ mission.challenge_id }}_flag_form" action="postflag/">
 												{% csrf_token %}
 												<input type="text" name="{{ mission.challenge_id }}_flag" class="input_flag" placeholder="Submit Flag" id="{{ mission.challenge_id }}_flag">

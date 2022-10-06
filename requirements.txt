@@ -3,3 +3,4 @@ python-dotenv==0.14.0
 pytz==2020.1
 django-markdownx
 django-mathfilters
+django-crispy-forms
