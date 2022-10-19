@@ -112,7 +112,7 @@ def flagsubmit(request) :
 				accounts_models.Teams.objects.filter(teamname=request.user).update(points=updated_points)
 				last_time = timezone.now()
 				accounts_models.Teams.objects.filter(teamname=request.user).update(latest=last_time)
-				response = '<div id="flag_correct"><p>CORRECT</p></div>'
+				response = '<div id="flag_correct"><p>CORRECT(Refresh the challenge page!)</p></div>'
 		except :
 			fr.save()
 			initial_points = accounts_models.Teams.objects.get(teamname=request.user).points
@@ -125,7 +125,7 @@ def flagsubmit(request) :
 			accounts_models.Teams.objects.filter(teamname=request.user).update(latest=last_time)
 			# accounts_models.Teams.objects.filter(teamname=request.user).update(latestsub=new_time)
 			# accounts_models.Teams.objects.filter(teamname=request.user).update(diff=diff_time)
-			response = '<div id="flag_correct"><p>CORRECT</p></div>'
+			response = '<div id="flag_correct"><p>CORRECT(Refresh the challenge page!)</p></div>'
 	elif request.user.is_superuser :
 		response = '<div id="flag_already"><p>Correct, But not added to scoreboard</p></div>'
 	else :
