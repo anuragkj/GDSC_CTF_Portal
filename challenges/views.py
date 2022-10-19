@@ -36,7 +36,7 @@ def assignID(a) :
 
 @login_required(login_url="/accounts/login/")
 def index(request) :
-	challenge = models.Challenges.objects.order_by("points")
+	challenge = models.Challenges.objects.order_by("ordernum")
 	challenge_info_stego_object = []
 	challenge_info_for_object = []
 	challenge_info_re_object = []

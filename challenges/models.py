@@ -8,6 +8,8 @@ def get_upload_path(instance, filename) :
 
 class Challenges(models.Model) :
 	name = models.CharField(max_length=250, unique=True)
+	##########################
+	ordernum = models.IntegerField(default=1)
 	challenge_id = models.CharField(max_length=300, primary_key=True)
 	category = models.CharField(max_length=100)
 	description = models.TextField()
